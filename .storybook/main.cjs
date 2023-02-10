@@ -1,5 +1,4 @@
 const path = require('path');
-const { loadConfigFromFile, mergeConfig } = require('vite');
 const react = require('@vitejs/plugin-react');
 
 module.exports = {
@@ -17,12 +16,8 @@ module.exports = {
     storyStoreV7: true,
   },
   async viteFinal(config, { configType }) {
-    const { config: userConfig } = await loadConfigFromFile(
-      path.resolve(__dirname, '../vite.config.ts')
-    );
     config.plugins = config.plugins.filter(
-      (plugin) =>
-        !(Array.isArray(plugin) && plugin[0]?.name.includes('vite:react'))
+      (plugin) => !(Array.isArray(plugin) && plugin[0]?.name.includes('vite:react'))
     );
 
     config.plugins.push(
@@ -34,6 +29,15 @@ module.exports = {
         },
       })
     );
+
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@/src': path.resolve(__dirname, '../src'),
+      '@/components': path.resolve(__dirname, '../src/components'),
+      '@/stories': path.resolve(__dirname, '../src/stories'),
+      '@/types': path.resolve(__dirname, '../src/types'),
+    };
+
     return config;
   },
 };
