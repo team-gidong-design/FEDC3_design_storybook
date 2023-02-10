@@ -1,5 +1,6 @@
-import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import { resolve } from 'path';
+import { defineConfig } from 'vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -19,4 +20,12 @@ export default defineConfig({
       },
     }),
   ],
+  resolve: {
+    alias: [
+      { find: '@/src', replacement: resolve(__dirname, 'src') },
+      { find: '@/components', replacement: resolve(__dirname, 'src/components') },
+      { find: '@/stories', replacement: resolve(__dirname, 'src/stories') },
+      { find: '@/types', replacement: resolve(__dirname, 'src/types') },
+    ],
+  },
 });

@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "export SET NODE_OPTIONS=--openssl-legacy-provider && start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
   "dependencies": {
@@ -16,6 +16,7 @@
     "emotion-normalize": "^11.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "storybook": "^6.5.16",
     "vite-plugin-svgr": "^2.4.0"
   },
   "lint-staged": {
@@ -34,11 +35,11 @@
     "@storybook/builder-vite": "^0.4.0",
     "@storybook/react": "^6.5.16",
     "@storybook/testing-library": "^0.0.13",
+    "@types/node": "^18.13.0",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@typescript-eslint/eslint-plugin": "^5.51.0",
     "@typescript-eslint/parser": "^5.51.0",
-    "@vitejs/plugin-react": "^3.1.0",
     "babel-loader": "^8.3.0",
     "eslint": "^8.33.0",
     "eslint-config-prettier": "^8.6.0",
@@ -50,6 +51,7 @@
     "lint-staged": "^13.1.1",
     "prettier": "^2.8.4",
     "typescript": "^4.9.3",
-    "vite": "^4.1.0"
+    "vite": "^4.1.0",
+    "vite-plugin-eslint": "^1.8.1"
   }
 }
