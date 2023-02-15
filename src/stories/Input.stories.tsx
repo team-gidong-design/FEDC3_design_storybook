@@ -1,5 +1,5 @@
 import Input from '@/src/components/Input';
-import { Props } from '@/types/input';
+import { InputProps } from '@/types/input';
 
 export default {
   title: 'Component/Input',
@@ -32,4 +32,4 @@ export default {
   },
 };
 
-export const Default = (args: Props) => <Input {...args} />;
+export const Default = (args: InputProps) => <Input {...args} />;

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { Props } from '@/types/input';
+import { InputProps } from '@/types/input';
 
 const Input = ({
   label,
@@ -9,18 +9,15 @@ const Input = ({
   required = false,
   disabled = false,
   readOnly = false,
-  wrapperProps,
-  ...props
-}: Props) => {
+}: InputProps) => {
   return (
-    <Wrapper block={block} {...wrapperProps}>
+    <Wrapper block={block}>
       <Label>{label}</Label>
       <StyledInput
         invalid={invalid}
         required={required}
         disabled={disabled}
         readOnly={readOnly}
-        {...props}
       />
     </Wrapper>
   );
